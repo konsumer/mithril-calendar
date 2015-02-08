@@ -1,0 +1,40 @@
+<style>
+	@import "./dist/MithrilCalendar.min.css";
+	body {
+		font-family:sans-serif;
+	}
+</style>
+<title>mithril-calendar</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mithril/0.1.30/mithril.min.js"></script>
+<script src="./dist/MithrilCalendar.min.js"></script>
+<body></body>
+<script>
+var CalendarPage = {
+	controller: function(){
+		var now = new Date();
+		this.year = m.route.param('year') ? m.route.param('year') : now.getFullYear();
+	    this.month = m.route.param('month') ? m.route.param('month') : now.getMonth()+1;
+
+	    // demo events
+	    var events = {};
+	    events[ (now.getMonth() + 1) + '/21/' + now.getFullYear()] = m('span', [
+	    	"Event 1 ",
+	    	m('b', 'HTML ok')
+	    ]);
+	    events[ (now.getMonth() + 1) + '/22/' + now.getFullYear()] = "Event 2";
+
+	    this.calendar = new MithrilCalendar.controller(this.year, this.month, events);
+	},
+	view: function(ctrl){
+		return [
+			m('h1', 'calendar'),
+			MithrilCalendar.view(ctrl.calendar)
+		];
+	}
+};
+
+m.route(document.body, "/calendar", {
+  "/calendar": CalendarPage,
+  "/calendar/:month/:year": CalendarPage
+});
+</script>

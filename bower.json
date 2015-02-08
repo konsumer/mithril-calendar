@@ -1,0 +1,19 @@
+{
+  "name": "mithril-calendar",
+  "version": "0.0.5",
+  "description": "A calendar component for mithril",
+  "main": [
+    "dist/MithrilCalendar.js",
+    "dist/MithrilCalendar.css"
+  ],
+  "keywords": [
+    "mithril",
+    "calendar"
+  ],
+  "author": "David Konsumer <konsumer@jetboystudio.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/konsumer/mithril-calendar",
+  "dependencies": {
+    "mithril": "^0.1.30"
+  }
+}
