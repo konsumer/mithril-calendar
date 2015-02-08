@@ -1,8 +1,5 @@
-if (!window) {
-  var m = require('mithril');
-}else{
-  var m = window.m;
-}
+var m = window ? window.m : require('mithril');
+if (!m && require) m = require('mithril');
 
 module.exports = {
   controller: function(year, month, events, route){
