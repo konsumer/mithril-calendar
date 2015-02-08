@@ -1,0 +1,33 @@
+{
+  "name": "mithril-calendar",
+  "version": "0.0.2",
+  "description": "A calendar component for mithril",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/konsumer/mithril-calendar.git"
+  },
+  "keywords": [
+    "mithril",
+    "calendar"
+  ],
+  "author": "David Konsumer <konsumer@jetboystudio.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/konsumer/mithril-calendar/issues"
+  },
+  "homepage": "https://github.com/konsumer/mithril-calendar",
+  "dependencies": {
+    "mithril": "^0.1.30"
+  },
+  "devDependencies": {
+    "browserify": "^8.1.3",
+    "less": "^2.4.0",
+    "uglify-js": "^2.4.16"
+  },
+  "scripts": {
+    "js": "browserify -s MithrilCalendar -x mithril -o dist/MithrilCalendar.js index.js && uglifyjs dist/MithrilCalendar.js -o dist/MithrilCalendar.min.js",
+    "css": "lessc dist/MithrilCalendar.less > dist/MithrilCalendar.css && lessc -x dist/MithrilCalendar.less > dist/MithrilCalendar.min.css",
+    "deploy": "npm run css && npm run js && node bump.js && npm publish"
+  }
+}
