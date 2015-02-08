@@ -14,7 +14,16 @@ var CalendarPage = {
 		var now = new Date();
 		this.year = m.route.param('year') ? m.route.param('year') : now.getFullYear();
 	    this.month = m.route.param('month') ? m.route.param('month') : now.getMonth()+1;
-	    this.calendar = new MithrilCalendar.controller(this.year, this.month);
+
+	    // demo events
+	    var events = {};
+	    events[ (now.getMonth() + 1) + '/21/' + now.getFullYear()] = m('span', [
+	    	"Event 1 ",
+	    	m('b', 'HTML ok')
+	    ]);
+	    events[ (now.getMonth() + 1) + '/22/' + now.getFullYear()] = "Event 2";
+
+	    this.calendar = new MithrilCalendar.controller(this.year, this.month, events);
 	},
 	view: function(ctrl){
 		return [

@@ -22,10 +22,20 @@ module.exports = {
     for (var i=0; i<35; i++){
       var d = date.getDate();
       var mo = date.getMonth();
-      var y = date.getYear();
-      var classes = (d === now.getDate() && mo === now.getMonth() && y === now.getYear()) ? '.today' : '';
+      var y = date.getFullYear();
+
+      var classes = (d === now.getDate() && mo === now.getMonth() && y === now.getFullYear()) ? '.today' : '';
+      
+      var content = '';
+      var k = (mo+1) + '/' + d + '/' + y;
+      if (events && events[k]){
+        content = m('span.event', events[k]);
+        classes += '.event';
+      }
+      
       out.push(m('.day' + classes, [
-        m('span.num', d)
+        m('span.num', d),
+        content
       ]));
       date.setDate(d+1);
     }

@@ -51,6 +51,10 @@
   color: #ffffff;
   background-color: #42a5f5;
 }
+.calendar .event {
+  color: #000000;
+  background-color: #ea80fc;
+}
 .calendar .next {
   float: right;
 }
