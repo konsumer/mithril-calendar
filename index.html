@@ -8,10 +8,16 @@
 		background: yellow!important;
 	}
 	.test2 {
-		color: blue;
+		color: blue!important;
+		font-size:small;
 	}
 	.test3 {
-		background: lightblue;
+		background: lightblue!important;
+	}
+	ul,li {
+		margin:0;
+		padding:0;
+		margin-left: 8px;
 	}
 </style>
 <title>mithril-calendar</title>
@@ -36,6 +42,15 @@ var CalendarPage = {
 	    events[ (now.getMonth() + 1) + '/24/' + now.getFullYear()] = "Event 4";
 
 	    events[ (now.getMonth() + 1) + '/25/' + now.getFullYear()] = {children: 'Event 5', class:'test1'}
+
+		// you will have to join multiple events yourself:
+		var d = {class:'test2.test3'};
+		d.children = m('ul', [
+			m('li', 'Event 6'),
+			m('li', 'Event 7'),
+			m('li', 'Event 8')
+		])
+	    events[ (now.getMonth() + 1) + '/26/' + now.getFullYear()] = d;
 
 	    this.calendar = new MithrilCalendar.controller(this.year, this.month, events);
 	},
