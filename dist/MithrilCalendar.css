@@ -15,7 +15,7 @@
 .calendar .day {
   float: left;
   width: 14.28571429%;
-  border: 1px solid #000000;
+  border: 1px solid #000;
   border-left: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -23,11 +23,11 @@
 }
 .calendar .weekday:first-child,
 .calendar .day:first-child {
-  border-left: 1px solid #000000;
+  border-left: 1px solid #000;
 }
 .calendar .weekday {
   text-align: center;
-  border-top: 1px solid #000000;
+  border-top: 1px solid #000;
 }
 .calendar .day {
   min-height: 100px;
@@ -45,15 +45,15 @@
 .calendar .day:nth-child(22),
 .calendar .day:nth-child(29),
 .calendar .day:nth-child(36) {
-  border-left: 1px solid #000000;
+  border-left: 1px solid #000;
 }
 .calendar .today {
-  color: #ffffff;
-  background-color: #42a5f5;
+  color: #fff;
+  background-color: #42A5F5;
 }
-.calendar .event {
-  color: #000000;
-  background-color: #ea80fc;
+.calendar div.event {
+  color: #000;
+  background-color: #EA80FC;
 }
 .calendar .next {
   float: right;

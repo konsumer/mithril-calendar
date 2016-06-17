@@ -28,7 +28,19 @@ module.exports = {
       var content = '';
       var k = (mo+1) + '/' + d + '/' + y;
       if (events && events[k]){
-        content = m('span.event', events[k]);
+        if (typeof events[k] === 'object'){
+          if (events[k].children){
+            content = m('span.event', events[k].children);
+            if (events[k].class){
+              classes += '.' + events[k].class;
+            }
+          }else{
+            content = m('span.event', events[k]);
+          }
+        }else{
+          content = m('span.event', events[k]);
+        }
+
         classes += '.event';
       }
       

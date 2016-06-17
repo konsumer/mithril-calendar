@@ -3,6 +3,16 @@
 	body {
 		font-family:sans-serif;
 	}
+	.test1 {
+		color: green!important;
+		background: yellow!important;
+	}
+	.test2 {
+		color: blue;
+	}
+	.test3 {
+		background: lightblue;
+	}
 </style>
 <title>mithril-calendar</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mithril/0.1.30/mithril.min.js"></script>
@@ -21,7 +31,11 @@ var CalendarPage = {
 	    	"Event 1 ",
 	    	m('b', 'HTML ok')
 	    ]);
-	    events[ (now.getMonth() + 1) + '/22/' + now.getFullYear()] = "Event 2";
+	    events[ (now.getMonth() + 1) + '/22/' + now.getFullYear()] = m('span.test1', 'Event 2');
+	    events[ (now.getMonth() + 1) + '/23/' + now.getFullYear()] = "Event 3";
+	    events[ (now.getMonth() + 1) + '/24/' + now.getFullYear()] = "Event 4";
+
+	    events[ (now.getMonth() + 1) + '/25/' + now.getFullYear()] = {children: 'Event 5', class:'test1'}
 
 	    this.calendar = new MithrilCalendar.controller(this.year, this.month, events);
 	},
